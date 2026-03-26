@@ -1,0 +1,29 @@
+{
+  "name": "marketing-skills",
+  "version": "1.4.0",
+  "description": "33 marketing skills for technical marketers and founders: CRO, copywriting, cold email, SEO, AI SEO, paid ads, ad creative, churn prevention, pricing strategy, referral programs, revenue operations, sales enablement, and more",
+  "author": {
+    "name": "Corey Haines",
+    "url": "https://corey.co"
+  },
+  "homepage": "https://github.com/coreyhaines31/marketingskills",
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "cro",
+    "conversion-optimization",
+    "copywriting",
+    "seo",
+    "ai-seo",
+    "paid-ads",
+    "email-marketing",
+    "growth",
+    "saas",
+    "analytics",
+    "pricing",
+    "referral",
+    "sales-enablement",
+    "revops"
+  ]
+}

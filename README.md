@@ -107,9 +107,22 @@ npx skills add coreyhaines31/marketingskills --list
 
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
 
-### Option 2: Claude Code Plugin
+### Option 2: Claude Code Plugin (Direct)
 
-Install via Claude Code's built-in plugin system:
+This repo is a Claude Code plugin. Clone it and load directly:
+
+```bash
+git clone https://github.com/coreyhaines31/marketingskills.git
+claude --plugin-dir /path/to/marketingskills
+```
+
+All 33 skills are auto-discovered from the `skills/` directory.
+
+### Option 3: Claude Code Plugin (Marketplace)
+
+You can also install via the Claude Code plugin marketplace:
+
+**Claude Code CLI:**
 
 ```bash
 # Add the marketplace
@@ -119,7 +132,27 @@ Install via Claude Code's built-in plugin system:
 /plugin install marketing-skills
 ```
 
-### Option 3: Clone and Copy
+**Claude Desktop (Cowork) — add to your settings:**
+
+Add this to your `~/.claude/settings.json` (or project `.claude/settings.json`):
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "marketingskills": {
+      "source": "github",
+      "repo": "coreyhaines31/marketingskills"
+    }
+  },
+  "enabledPlugins": {
+    "marketing-skills@marketingskills": true
+  }
+}
+```
+
+This registers the marketplace and enables the plugin. All 33 skills become available automatically.
+
+### Option 4: Clone and Copy
 
 Clone the entire repo and copy the skills folder:
 
@@ -128,7 +161,7 @@ git clone https://github.com/coreyhaines31/marketingskills.git
 cp -r marketingskills/skills/* .agents/skills/
 ```
 
-### Option 4: Git Submodule
+### Option 5: Git Submodule
 
 Add as a submodule for easy updates:
 
@@ -138,13 +171,13 @@ git submodule add https://github.com/coreyhaines31/marketingskills.git .agents/m
 
 Then reference skills from `.agents/marketingskills/skills/`.
 
-### Option 5: Fork and Customize
+### Option 6: Fork and Customize
 
 1. Fork this repository
 2. Customize skills for your specific needs
 3. Clone your fork into your projects
 
-### Option 6: SkillKit (Multi-Agent)
+### Option 7: SkillKit (Multi-Agent)
 
 Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across multiple AI agents (Claude Code, Cursor, Copilot, etc.):
 

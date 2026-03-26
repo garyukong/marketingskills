@@ -4,7 +4,7 @@ Guidelines for AI agents working in this repository.
 
 ## Repository Overview
 
-This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard). This repo also serves as a **Claude Code plugin marketplace** via `.claude-plugin/marketplace.json`.
+This repository contains **Agent Skills** for AI agents following the [Agent Skills specification](https://agentskills.io/specification.md). Skills install to `.agents/skills/` (the cross-agent standard). This repo is also a **Claude Code plugin** (via `.claude-plugin/plugin.json`) and is listed on the **Claude Code plugin marketplace** (via `.claude-plugin/marketplace.json`).
 
 - **Name**: Marketing Skills
 - **GitHub**: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
@@ -16,8 +16,9 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 ```
 marketingskills/
 ├── .claude-plugin/
-│   └── marketplace.json   # Claude Code plugin marketplace manifest
-├── skills/                # Agent Skills
+│   ├── plugin.json        # Claude Code plugin manifest (required for plugin system)
+│   └── marketplace.json   # Claude Code marketplace listing (for discoverability)
+├── skills/                # Agent Skills (auto-discovered by plugin system)
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
@@ -129,8 +130,17 @@ description: When the user wants to optimize conversions on any marketing page. 
 
 ## Claude Code Plugin
 
-This repo also serves as a plugin marketplace. The manifest at `.claude-plugin/marketplace.json` lists all skills for installation via:
+This repo is a Claude Code plugin. It has two manifest files:
 
+- **`.claude-plugin/plugin.json`** — Required plugin manifest. Defines name, version, description, author, and metadata. Claude Code uses this to recognize and load the plugin. Skills in `skills/` are auto-discovered.
+- **`.claude-plugin/marketplace.json`** — Marketplace listing. Enables discovery and installation via the Claude Code plugin marketplace.
+
+**Direct plugin install:**
+```bash
+claude --plugin-dir /path/to/marketingskills
+```
+
+**Marketplace install:**
 ```bash
 /plugin marketplace add coreyhaines31/marketingskills
 /plugin install marketing-skills
